@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./neweb.css">
+    <title>ياسر</title>
+    <style>
+        /* يمكنك تعديل هذه الأنماط لاحقًا حسب تصميم موقعك */
+        .search-bar {
+            margin: 20px 0;
+            padding: 10px;
+            width: 50%;
+        }
+        .project-card {
+            margin: 20px 0;
+        }
+        .project-title a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="https://scontent.fbgw66-2.fna.fbcdn.net/v/t39.30808-6/458735912_1560639648192300_2697949292185223957_n.jpg?stp=dst-jpg_s720x720&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=K7sdEDx9GOUQ7kNvgHbRICx&_nc_ht=scontent.fbgw66-2.fna&oh=00_AYCRBYtJimEQnrZqfCKJmjtkhW7XAlr4vXvSQ_feo7Xohw&oe=66E26915" alt="صورة الشعار">
+        <nav class="things">
+            <a href="#">من أنا</a>
+        </nav>
+    </header>
+
+    <!-- مربع البحث -->
+    <input type="text" id="searchBar" class="search-bar" placeholder="ابحث عن الكارت..." oninput="searchCards()">
+
+    <section>
+        <div class="main">
+            <h2 class="title">إضافة جديد</h2>
+        </div>
+
+        <!-- كارت 1 -->
+        <article class="project-card" id="last-hope">
+            <figure class="project-image">
+                <img src="https://scontent.fbgw66-2.fna.fbcdn.net/v/t39.30808-6/457054944_1553915905531341_8891204793224340467_n.jpg?stp=dst-jpg_p526x296&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=zCNhu4RaLvMQ7kNvgGY6MNL&_nc_ht=scontent.fbgw66-2.fna&oh=00_AYCnjwHVQw5yd00X7XgyLcGmPEvsBc9nn3f297OO6fq4RQ&oe=66D62976" alt="تصميم متعلق بالصيدلة">
+                <figcaption>تم استلهام التصميم من مهنة الصيدلة، وصُمم بشكل جميل يناسب النساء.</figcaption>
+            </figure>
+            <div class="project-info">
+                <strong class="project-title">
+                    <a href="#last-hope">الأمل الأخير</a>
+                </strong>
+            </div>
+        </article>
+
+        <!-- كارت 2 -->
+        <article class="project-card" id="new-vision">
+            <figure class="project-image">
+                <img src="https://example.com/image2.jpg" alt="تصميم يتعلق بالتكنولوجيا">
+                <figcaption>تصميم حديث مستوحى من التطورات التكنولوجية الأخيرة.</figcaption>
+            </figure>
+            <div class="project-info">
+                <strong class="project-title">
+                    <a href="#new-vision">الرؤية الجديدة</a>
+                </strong>
+            </div>
+        </article>
+
+        <!-- كارت 3 -->
+        <article class="project-card" id="future-dream">
+            <figure class="project-image">
+                <img src="https://example.com/image3.jpg" alt="تصميم مستقبلي">
+                <figcaption>تصميم مستقبلي يرمز إلى الابتكار والأحلام المستقبلية.</figcaption>
+            </figure>
+            <div class="project-info">
+                <strong class="project-title">
+                    <a href="#future-dream">حلم المستقبل</a>
+                </strong>
+            </div>
+        </article>
+    </section>
+
+    <!-- كود JavaScript للبحث -->
+    <script>
+        function searchCards() {
+            // الحصول على قيمة حقل البحث
+            let searchQuery = document.getElementById('searchBar').value.toLowerCase();
+            
+            // الحصول على جميع الكروت
+            let cards = document.querySelectorAll('.project-card');
+            
+            // التحقق من كل كارت إذا كان يتطابق مع البحث
+            cards.forEach(card => {
+                let title = card.querySelector('.project-title span') || card.querySelector('.project-title a');
+                if (title && title.textContent.toLowerCase().includes(searchQuery)) {
+                    card.style.display = "block"; // عرض الكارت إذا كان مطابقًا
+                } else {
+                    card.style.display = "none"; // إخفاء الكارت إذا لم يكن مطابقًا
+                }
+            });
+        }
+    </script>
+</body>
+</html>
